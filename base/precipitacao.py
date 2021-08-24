@@ -19,10 +19,22 @@ class Precipitacao:
       self.data = self.data[mascara]
       self.data.name = 'PRECIPITACAO'
     
-    def means(self):  
-        res = []
-        indexes = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',
-                   '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24']
-        for r in self.data[indexes].columns:
-            res.append(np.mean(self.data[r]))
-        return res
+    
+    def transpose_to_time(self):
+        self.data = self.data.T
+        self.data.rename(columns=self.data.iloc[0], inplace=True)
+        self.data = self.data.drop(self.data.index[0])
+    
+    def encoder(self):
+        encoders = {}
+        for r in self.data.columns:
+            encoders[r] = {'MUITO ABAIXO DO NORMAL': -2, 'ABAIXO DO NORMAL': -1, 'NORMAL': 0, 'ACIMA DO NORMAL': 1, 'MUITO ACIMA DO NORMAL': 2}
+        self.data = self.data.replace(encoders)    
+    
+    # def means(self):  
+    #     res = []
+    #     indexes = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',
+    #                '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24']
+    #     for r in self.data[indexes].columns:
+    #         res.append(np.mean(self.data[r]))
+    #     return res

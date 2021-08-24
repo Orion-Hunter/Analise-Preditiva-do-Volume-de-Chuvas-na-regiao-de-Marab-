@@ -18,3 +18,9 @@ class AtlanticoSul:
         mascara = (self.data['Data'] >= '1982-01-01') & (self.data['Data'] <= '2020-12-01')
         self.data = self.data[mascara]
         self.data.name = 'ATLANTICO_SUL'
+    
+    
+    def transpose_to_time(self):
+        self.data = self.data.T
+        self.data.rename(columns=self.data.iloc[0], inplace=True)
+        self.data = self.data.drop(self.data.index[0])
