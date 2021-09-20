@@ -17,6 +17,7 @@ class Precipitacao:
                                '20','21','22','23', '24']
       mascara = (self.data['Data'] >= '1982-01-01') & (self.data['Data'] <= '2020-12-01')
       self.data = self.data[mascara]
+      self.data = self.data.set_index('Data')
       self.data.name = 'PRECIPITACAO'
     
     
@@ -28,7 +29,7 @@ class Precipitacao:
     def encoder(self):
         encoders = {}
         for r in self.data.columns:
-            encoders[r] = {'MUITO ABAIXO DO NORMAL': -2, 'ABAIXO DO NORMAL': -1, 'NORMAL': 0, 'ACIMA DO NORMAL': 1, 'MUITO ACIMA DO NORMAL': 2}
+            encoders[r] = {'MUITO ABAIXO DO NORMAL': 0, 'ABAIXO DO NORMAL': 1, 'NORMAL': 2, 'ACIMA DO NORMAL': 3, 'MUITO ACIMA DO NORMAL': 4}
         self.data = self.data.replace(encoders)    
     
     # def means(self):  

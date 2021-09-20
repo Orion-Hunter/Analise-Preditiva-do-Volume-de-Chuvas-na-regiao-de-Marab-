@@ -14,6 +14,7 @@ class Nino:
         self.data.columns = ['Data', '1', '2', '3', '4']
         mascara = (self.data['Data'] >= '1982-01-01') & (self.data['Data'] <= '2020-12-01')
         self.data = self.data[mascara]
+        self.data = self.data.set_index('Data')
         self.data.name = 'NINO'
     
     

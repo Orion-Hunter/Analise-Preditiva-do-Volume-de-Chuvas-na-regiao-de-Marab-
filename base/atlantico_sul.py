@@ -17,6 +17,7 @@ class AtlanticoSul:
                            '37', '38', '39']
         mascara = (self.data['Data'] >= '1982-01-01') & (self.data['Data'] <= '2020-12-01')
         self.data = self.data[mascara]
+        self.data = self.data.set_index('Data')
         self.data.name = 'ATLANTICO_SUL'
     
     

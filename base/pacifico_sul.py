@@ -16,6 +16,7 @@ class PacificoSul:
                            '20','21','22','23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34']
         mascara = (self.data['Data'] >= '1982-01-01') & (self.data['Data'] <= '2020-12-01')
         self.data = self.data[mascara]
+        self.data = self.data.set_index('Data')
         self.data.name = 'PACIFICO_SUL'
     
     

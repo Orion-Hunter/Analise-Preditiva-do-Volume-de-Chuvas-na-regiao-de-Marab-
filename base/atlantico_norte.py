@@ -15,6 +15,7 @@ class AtlanticoNorte:
        self.data.columns = ['Data','1','2', '3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19']
        mascara = (self.data['Data'] >= '1982-01-01') & (self.data['Data'] <= '2020-12-01')
        self.data = self.data[mascara]
+       self.data = self.data.set_index('Data')
        self.data.name = 'ATLANTICO_NORTE'
     
     def transpose_to_time(self):
