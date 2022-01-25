@@ -4,15 +4,15 @@ import numpy as np
 from .precipitacao import Precipitacao
 import plotly.express as px
 
-sys.path.insert(0, '../settings');
+#sys.path.insert(0, '../settings');
 
-from settings import config
+from config import URL_COORDENADAS
 
 class Coordenadas:
     data = None
         
     def __init__(self):
-       self.data = pd.read_excel(config.URL_COORDENADAS)
+       self.data = pd.read_excel(URL_COORDENADAS)
        self.data.name = 'COORDENADAS'
      
     

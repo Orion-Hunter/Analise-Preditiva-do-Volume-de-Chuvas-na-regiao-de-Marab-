@@ -1,15 +1,15 @@
 import pandas as pd
-import sys
+#import sys
 
-sys.path.insert(0, '../settings');
+#sys.path.insert(0, '../settings');
 
-from settings import config
+from config import URL_NINO
 
 class Nino:
     data = None
         
     def __init__(self):
-        self.data = pd.read_excel(config.URL_NINO)
+        self.data = pd.read_excel(URL_NINO)
         #NINO original columns = [NINO1+2, NINO3, NINO4, NINO3.4]
         self.data.columns = ['Data', '1', '2', '3', '4']
         mascara = (self.data['Data'] >= '1982-01-01') & (self.data['Data'] <= '2020-12-01')
