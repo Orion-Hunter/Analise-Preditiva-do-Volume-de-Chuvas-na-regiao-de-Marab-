@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "analise-preditiva-do-volume-de-chuvas-na-regiao-de-marab-"
+version = "0.1.0"
+description = ""
+authors = ["Orion-Hunter <silvasalesf@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^1.4.0"
+numpy = "^1.22.1"
+matplotlib = "^3.5.1"
+plotly = "^5.5.0"
+jupyterlab = "^3.2.8"
+openpyxl = "^3.0.9"
+sklearn = "^0.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

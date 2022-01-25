@@ -1,0 +1,3 @@
+LABELS_SAIDAS = ["PRM1","PRM2","PRM3","PRM4","PRM5","PRM6","PRM7","PRM8","PRM9","PRM10","PRM11",
+                 "PRM12","PRM13","PRM14","PRM15","PRM16","PRM17","PRM18","PRM19","PRM20","PRM21",
+                 "PRM22","PRM23","PRM24"]
